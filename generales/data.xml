@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <acceso>
+    <servidor>localhost</servidor>
+    <database>db_029</database>
+    <usuario>usuarioadmin</usuario>
+    <password>passadmin</password>
+</acceso>
