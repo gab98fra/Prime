@@ -2,7 +2,7 @@
 # Nombre:       sistemas.py
 # Autor:        Gabriel F
 # Creado:       18 de Septiembre 2020
-# Modificado:   18 de Septiembre 2020
+# Modificado:   19 de Septiembre 2020
 # Copyright:    (c) 2020 by Gabriel F, 2020
 # -----------------------------------------------------------------------------------------------
 
@@ -28,19 +28,19 @@ from sistemas.models_products import models_products
 class appSistema(QMainWindow):
 #Clase principal
   def __init__(self, variables, parent=None):#clase padre
-    #Inicializa superclase, su metodo init
     super(appSistema, self).__init__(parent)
+    
     #Ventana: Sistemas
     self.setWindowTitle(variables.nomSistema + " Sistemas")
     self.setWindowIcon(QIcon("generales/image/logo.png"))
     self.showMaximized()
 
-    #Modulo recibido a manera parametro
+    #Módulo recibido a manera parámetro
     self.variables=variables
 
     self.prueba="prueba"
 
-    #Inicializar metodo 
+    #Inicializar método 
     self.initUI()
 
   def initUI(self):
@@ -346,7 +346,7 @@ class appSistema(QMainWindow):
       #Guardamos los valores: usuarios en variable lista
       user=resultado.getUser()
       
-      #Ejecutamos la clase, enviadole el parametro
+      #Ejecutamos la clase, enviadole el parámetro
       menu_user_update(self.variables, user, self).exec_()
 
     else:
@@ -356,7 +356,7 @@ class appSistema(QMainWindow):
   def deleteUser(self):
   #Ejecuta la clase: menu_user_delete
     
-    #Identificamos los usuarios en la BD, para después enviar como parametro a la clase:menu_user_update
+    #Identificamos los usuarios en la BD, para después enviar como parámetro a la clase:menu_user_update
     objeto=models_users()
     resultado=objeto.read(self.variables, self.variables.usuarioIdCliente)
 
@@ -736,7 +736,7 @@ class menu_user_add(QDialog):
   def __init__(self, variables, parent=None):#clase hijo
     super(menu_user_add, self).__init__()
 
-    #Modulo recibido a manera parámetro
+    #Módulo recibido a manera parámetro
     self.variables=variables
     #Permite interactuar con la clase: Padre
     self.parent = parent
@@ -852,7 +852,7 @@ class menu_user_update(QDialog):
     #Agregamos el primer elemento, 
     self.comboBox1.addItem("")
 
-    #A través del parametro recibido, agregamos los usuarios
+    #A través del parámetro recibido, agregamos los usuarios
     for usuario in listacomboBox:
       #Agregamos uno a uno
       self.comboBox1.addItem(usuario)
@@ -947,7 +947,7 @@ class menu_user_delete(QDialog):
     #Oculta los botones superiores
     self.setWindowFlags(Qt.WindowCloseButtonHint | Qt.MSWindowsFixedSizeDialogHint)
 
-    #Modulo recibido a manera parametro
+    #Módulo recibido a manera parámetro
     self.variables=variables
     self.parent=parent
 
@@ -963,7 +963,7 @@ class menu_user_delete(QDialog):
     self.comboBox1.setGeometry(QRect(230, 50, 111, 21))
     #Agregamos el primer elemento, en método usuarioCombox se agregan más elementos
     self.comboBox1.addItem("")
-    #Agregamos los usuarios recibidos como parametro
+    #Agregamos los usuarios recibidos como parámetro
     for user in range(len(listacomboBox)):
       if user==0:
         pass

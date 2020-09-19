@@ -2,7 +2,7 @@
 # Nombre:       moduls_users.py
 # Autor:        Gabriel F
 # Creado:       18 de Septiembre 2020
-# Modificado:   18 de Septiembre 2020
+# Modificado:   19 de Septiembre 2020
 # Copyright:    (c) 2020 by Gabriel F, 2020
 # -----------------------------------------------------------------------------------------------
 
@@ -10,14 +10,12 @@
 
 
            Modelo Usuario: permite realizar CRUD en la tabla usuario sql
-           Es utilizado en el modulo: sistemas.py
+           Es utilizado en el módulo: sistemas.py
 
 
 """
-
 import pyodbc
 
-#Modulo creados
 from main.sistemas.entusers import entUser
 
 class models_users():
@@ -34,21 +32,21 @@ class models_users():
                     consulta="SELECT usuario, contrasena,rol FROM usuario WHERE id_cliente=?"
                     
                     
-                    cursor.execute(consulta,(idcliente))#idcliente, es el parametro recibido
+                    cursor.execute(consulta,(idcliente))#idcliente, es el párametro recibido
 
                     datosObtenidos=cursor.fetchall()
                     #datosObtenidos ----> [(usuario1, contrasena1, rol1), (usuario2, contrasena2, rol2)]
 
-                    #si la longitud de la lista es cero, significa que no hay ningun registro
+                    #si la longitud de la lista es cero, significa que no hay ningún registro
                     if len(datosObtenidos)>=1:
                         
                         #guardamos los registro encontrados en el objeto: objetoUsuario
                         for dupla in datosObtenidos:
                         
             
-                            #Utilizamos el objeto creado y le mandamos como parametro el usuario, [0]==user de la BD
+                            #Utilizamos el objeto creado y le mandamos como párametro el usuario, [0]==user de la BD
                             objetoUsuario.setUser(dupla[0])
-                            #asignamos el valor de password [1]==cotraseña
+                            #asignamos el valor de password [1]==contraseña
                             objetoUsuario.setPassword(dupla[1])
                             #asignamos el valor de rol [2]==rol
                             objetoUsuario.setRol(dupla[2])  

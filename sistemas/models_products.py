@@ -2,14 +2,14 @@
 # Nombre:       models_products.py
 # Autor:        Gabriel F
 # Creado:       18 de Septiembre 2020
-# Modificado:   18 de Septiembre 2020
+# Modificado:   19 de Septiembre 2020
 # Copyright:    (c) 2020 by Gabriel F, 2020
 # -----------------------------------------------------------------------------------------------
 
 """
 
            Modelo Productos: permite realizar CRUD en la tabla cat_producto
-           El modulo es utilizado: sistemas
+           El módulo es utilizado: sistemas
 
 """
 
@@ -24,7 +24,7 @@ class models_products():
         
         if variables.conexionBd:
             try:
-                #With permite cerrar automaticamente el cursor, una vez finalizada el query
+                #With permite cerrar automáticamente el cursor, una vez finalizada el query
                 with variables.conexionBd.cursor() as cursor:
                     
                     #Objeto a través del modulo entproducts
@@ -32,15 +32,15 @@ class models_products():
                     
                     query="SELECT id_producto, categoria, subcategoria, marca, producto, sku, precio,usuario FROM cat_producto WHERE id_cliente=?"
                     
-                    cursor.execute(query,(idcliente))#idcliente, parametro recibido
+                    cursor.execute(query,(idcliente))#idcliente, parámetro recibido
 
-                    #La informacion consultada es una tupla dentro de una lista: [(val1, val2), (val1,va2)...]
+                    #La información consultada es una tupla dentro de una lista: [(val1, val2), (val1,va2)...]
                     #[(id_producto1, categoria1, ..., usuario), (id_producto2, categoria2, ...,usuario)]
                     datosObtenidos=cursor.fetchall()
                     
                     
                     if len(datosObtenidos)>=1:
-                    #si la longitud de la lista es cero, significa que no hay ningun registro
+                    #si la longitud de la lista es cero, significa que no hay ningún registro
 
                         for tupla in datosObtenidos:
                         #guardamos los registro encontrados, a través del objeto creado
@@ -68,10 +68,12 @@ class models_products():
             try:
                 #Utilizamos la variable global
                 with variables.conexionBd.cursor() as cursor:
+                    
                     #creamos la sintaxis
                     query="INSERT INTO cat_producto(categoria, subcategoria, marca, producto, sku, precio, id_cliente, usuario) VALUES (?,?,?,?,?,?,?,?)"    
                     #Ingresamos los valores
                     cursor.execute(query, (cat,subcat, marca, prod, sku, precio, idcliente, usuario))
+                    
                     return True
             except:
                 return False

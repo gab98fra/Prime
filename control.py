@@ -2,14 +2,14 @@
 # Nombre:       control.py
 # Autor:        Gabriel F
 # Creado:       18 de Septiembre 2020
-# Modificado:   18 de Septiembre 2020
+# Modificado:   19 de Septiembre 2020
 # Copyright:    (c) 2020 by Gabriel F, 2020
 # -----------------------------------------------------------------------------------------------
 
 """
         Módulo principal:
            Importante instalar correctamente SQL Server con los datos importantes de este módulo
-                               credenciales de acceso, tablas, datos de login
+                               credenciales de acceso, tablas y datos de login
 """
 
 
@@ -34,19 +34,17 @@ if __name__ == '__main__':
     resultado = sesionBD.read("usuario2", "usuario2")
     
     if resultado:
-        # guardamos lo valores en las variables globales
+        #Guardamos lo valores en las variables globales
         variables.usuarioIdCliente = resultado.getIdCliente()
         variables.usuarioNom = resultado.getUser()
         variables.usuarioPas = resultado.getPassword()
         variables.usuarioRol = resultado.getRol()
 
-        # Se crea el objecto: appSistem
+        # Se crea el objecto: appSistema
         objecto = appSistema(variables)
         # Muestra objeto creado
         objecto.show()
         
-        # app.exec()
-        #FIN
         sys.exit(app.exec_())
         
     else:
