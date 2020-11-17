@@ -3,7 +3,7 @@
 # Autor:        Gabriel F
 # GitHub:       https://github.com/gab98fra/
 # Creado:       18 de Septiembre 2020
-# Modificado:   20 de Septiembre 2020
+# Modificado:   16 de Noviembre 2020
 # Copyright:    (c) 2020 by Gabriel F, 2020
 # -----------------------------------------------------------------------------------------------
 
@@ -11,6 +11,10 @@
         Módulo principal:
            Importante instalar correctamente SQL Server con los datos importantes de este módulo
                                credenciales de acceso, tablas y datos de login
+
+    Python 3.8.2
+    PyQt 5.15.0
+
 """
 
 
@@ -21,13 +25,13 @@ from sistemas.sistemas import appSistema
 from generales.models_login import models_login 
 from generales import variables
 
-#Sistemas
+#Sistemas - con SQL Instalado
 if __name__ == '__main__':
 
     #INICIO
     app = QApplication(sys.argv)
 
-    # Objeto conexión BD, se ejecuta como función
+    # Conexión  a la BD
     models_login.conexion()
 
     # Sesión BD
