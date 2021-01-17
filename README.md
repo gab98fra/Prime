@@ -13,7 +13,8 @@ Importante instalar correctamente SQL Server:
 
 3. Crear el usuario (user: "usuario2", password: "usuario2")
 
+# Evidencia
+![](generales/imge/img.PNG)
 
-<img src="https://github.com/gab98fra/Prime/blob/master/generales/image/img.PNG" alt="Visualización">
 
 
