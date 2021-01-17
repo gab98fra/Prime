@@ -17,7 +17,7 @@
 """
 import pyodbc
 
-from main.sistemas.entusers import entUser
+from sistemas.entusers import entUser
 
 class models_users():
     def read(self, variables, idcliente):

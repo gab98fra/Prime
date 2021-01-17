@@ -17,7 +17,7 @@
 import pyodbc
 
 
-from main.sistemas.entproducts import entProduct
+from sistemas.entproducts import entProduct
 
 class models_products():
     
